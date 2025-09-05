@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container" style="background-color: #f0f0f0; border-radius: 8px;">
+        <div class="row">
+            <div class="col-md-8 m-auto">
+                <a href="{{url_for('apifilmes')}}" class="btn btn-dark"><< Voltar ao catálogo</a><br><br>
+                <div class="card shadow-lg">
+                    {% if filmInfo.image %}
+                    <img src="{{ filmInfo.image }}" class="card-img-top" alt="{{ filmInfo.title }}">
+                    {% endif %}
+                    <div class="card-body">
+                        <h2 class="card-title">{{ filmInfo.title }}</h2>
+                        <p><strong>Diretor:</strong> {{ filmInfo.director }}</p>
+                        <p><strong>Produtor:</strong> {{ filmInfo.producer }}</p>
+                        <p><strong>Ano de lançamento:</strong> {{ filmInfo.release_date }}</p>
+                        <p><strong>Duração:</strong> {{ filmInfo.running_time }} min</p>
+                        <p><strong>Descrição:</strong> {{ filmInfo.description }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
